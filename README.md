@@ -4,6 +4,8 @@ The project will be a 2D maze game that will also have riddles to solve througho
 
 ## Compile/Deploy
 
+To compile please enter in: g++ -o MazeGame MazeGame.cpp
+
 ## Usage
 
 ## Options
