@@ -6,6 +6,9 @@
 #include <ctime>
 #include <cstdlib>
 #include <conio.h>
+#include <chrono>
+#include <thread>
+
 using namespace std;
 
   const int KEY_LEFT = 'a', KEY_RIGHT = 'd',  KEY_UP = 'w', KEY_DOWN = 's';
@@ -121,6 +124,7 @@ void gameType() {
     }
     // Closing file
     inFile.close();
+    system("cls");
 
     count = count - 1;
 
@@ -203,6 +207,8 @@ bool answer(Riddles list[], int random, string input) {
     }
     else {
       cout << "Correct!" << endl;
+      std::this_thread::sleep_for(std::chrono::seconds(5));
+      system("cls");
       return true;
     }
   }
