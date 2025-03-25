@@ -11,7 +11,11 @@ In order to use the program in command prompt please enter MazeGame in the same 
 
 ## Options
 Options include inputting more riddle types via inputting more .txt files. The last line of the document will not be read as that is for author notes or citation of riddles. Please follow below format in the .txt file:
-Riddle?  answer.
+
+Riddle? Tab Answer. Newline
+
+![image](https://github.com/user-attachments/assets/4112b2e6-2537-4ed2-83ab-28e3deb6bf18)
+
 
 ## Testing
 Testing was done manually.
