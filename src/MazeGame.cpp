@@ -101,7 +101,7 @@ void gameType() {
     for (const auto& entry : std::filesystem::directory_iterator(pathToShow)) {
       const auto filenameStr = entry.path().filename().string();
       if (entry.is_regular_file()) {
-        if (filenameStr.find("Maze") != false) {
+        if (entry.path().filename().extension() == ".txt") {
           std::cout << filenameStr << '\n';
         }
       }
@@ -209,24 +209,39 @@ int random_r(int size) {
 
 bool answer(Riddles list[], int random, string input) {    
   // Comparing answer key to input
-  if (list[random].answer.compare(input) == 0) {
-    if (input.size() < list[random].answer.size()) {
+  if (list[random].answer.size() != input.size()) {
+    cout << "Incorrect. Please try again." << endl;
+    return false;
+  }
+  for (int i = 0; i < list[random].answer.size(); ++i) {
+    if (tolower(list[random].answer[i]) != tolower(input[i])) {
       cout << "Incorrect. Please try again." << endl;
       return false;
     }
-    else {
-      cout << "Correct!" << endl;
-      std::this_thread::sleep_for(std::chrono::seconds(5));
-      system("cls");
-      return true;
-    }
   }
-  else {
-  cout << "Incorrect." << endl;
-  return false;
-  }
+  cout << "Correct!" << endl;
+  std::this_thread::sleep_for(std::chrono::seconds(5));
+  system("cls");
+  return true;
+  
+  // if (list[random].answer.compare(input) == 0) {
+  //   if (input.size() < list[random].answer.size()) {
+  //     cout << "Incorrect. Please try again." << endl;
+  //     return false;
+  //   }
+  //   else {
+  //     cout << "Correct!" << endl;
+  //     std::this_thread::sleep_for(std::chrono::seconds(5));
+  //     system("cls");
+  //     return true;
+  //   }
+  // }
+  // else {
+  // cout << "Incorrect." << endl;
+  // return false;
+  // }
 
-  return false;
+  //return false;
 }
 
 bool riddle(Riddles list[], int size) {
